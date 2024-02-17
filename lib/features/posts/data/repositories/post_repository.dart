@@ -8,7 +8,7 @@ import 'package:flutter_clean_architecture_posts_app/features/posts/domain/entit
 import 'package:flutter_clean_architecture_posts_app/features/posts/domain/repositories/post_repository.dart';
 
 import '../datasource/post_local_data_source.dart';
-import '../datasource/post_rempote_data_source.dart';
+import '../datasource/post_remote_data_source.dart';
 
 class PostRepositoryImp extends PostRepository {
   PostRepositoryImp(
@@ -18,7 +18,7 @@ class PostRepositoryImp extends PostRepository {
 
   final PostRemoteDataSource remoteDataSource;
   final PostLocalDataSource localDataSource;
-  final NetworkInfoImp networkInfoImp;
+  final NetworkInfo networkInfoImp;
 
   @override
   ResultVoid addPost(Post post) async {

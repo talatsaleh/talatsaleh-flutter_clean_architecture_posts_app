@@ -27,26 +27,26 @@ class AddDeletePostsBloc
       if (event is AddPostEvent) {
         emit(LoadingAddDeletePostsState());
         final failureOrDoneMessage = await addPost(event.post);
-        emit(
-          foldFailureOrDone(failureOrDoneMessage, sAddSuccessMessage),
-        );
+        AddDeletePostsState events = _foldFailureOrDone(failureOrDoneMessage, sAddSuccessMessage);
+        print(events.runtimeType.toString());
+        emit(events);
       } else if (event is UpdatePostEvent) {
         emit(LoadingAddDeletePostsState());
         final failureOrDoneMessage = await updatePost(event.post);
         emit(
-          foldFailureOrDone(failureOrDoneMessage, sUpdateSuccessMessage),
+          _foldFailureOrDone(failureOrDoneMessage, sUpdateSuccessMessage),
         );
       } else if (event is DeletePostEvent) {
         emit(LoadingAddDeletePostsState());
         final failureOrDoneMessage = await deletePost(event.postId);
         emit(
-          foldFailureOrDone(failureOrDoneMessage, sDeleteSuccessMessage),
+          _foldFailureOrDone(failureOrDoneMessage, sDeleteSuccessMessage),
         );
       }
     });
   }
 
-  AddDeletePostsState foldFailureOrDone(
+  AddDeletePostsState _foldFailureOrDone(
       Either<Failure, Unit> either, String message) {
     return either.fold(
       (failure) {

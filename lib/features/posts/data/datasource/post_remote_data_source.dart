@@ -17,7 +17,7 @@ abstract class PostRemoteDataSource {
   Future<Unit> addPost(Post post);
 }
 
-const url = 'https://jsonplaceholder.org';
+const url = 'https://jsonplaceholder.typicode.com';
 
 class PostRemoteDataSourceImp implements PostRemoteDataSource {
   final http.Client client;
