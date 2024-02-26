@@ -6,7 +6,7 @@ abstract class PostRepository {
 
   ResultVoid updatePost({required Post post});
 
-  ResultVoid deletePost({required String id});
+  ResultVoid deletePost({required int id});
 
   ResultVoid addPost(Post post);
 }

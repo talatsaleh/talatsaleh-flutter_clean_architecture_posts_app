@@ -24,7 +24,7 @@ class UpdatePostEvent extends AddDeletePostsEvent {
 
 
 class DeletePostEvent extends AddDeletePostsEvent {
-  final String postId;
+  final int postId;
 
   DeletePostEvent({required this.postId});
 

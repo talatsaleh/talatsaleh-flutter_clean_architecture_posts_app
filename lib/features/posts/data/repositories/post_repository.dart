@@ -26,7 +26,7 @@ class PostRepositoryImp extends PostRepository {
   }
 
   @override
-  ResultVoid deletePost({required String id}) async {
+  ResultVoid deletePost({required int id}) async {
     return await _resultVoid(() => remoteDataSource.deletePost(id));
   }
 

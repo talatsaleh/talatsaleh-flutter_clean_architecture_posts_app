@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 abstract class PostRemoteDataSource {
   Future<List<Post>> getAllPosts();
 
-  Future<Unit> deletePost(String id);
+  Future<Unit> deletePost(int id);
 
   Future<Unit> updatePost(PostModel post);
 
@@ -58,7 +58,7 @@ class PostRemoteDataSourceImp implements PostRemoteDataSource {
   }
 
   @override
-  Future<Unit> deletePost(String id) async {
+  Future<Unit> deletePost(int id) async {
     final response = await client.delete(
       Uri.parse('$url/posts/${id.toString()}'),
       headers: {"content-Type": "application/json"},

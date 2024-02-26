@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_posts_app/features/posts/presentation/pages/post_details_page.dart';
 
 import '../../../domain/entities/post.dart';
 
@@ -12,13 +13,23 @@ class PostListWidget extends StatelessWidget {
     return ListView.separated(
       itemBuilder: (ctx, index) {
         return ListTile(
-          onTap: (){},
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (ctx) => PostDetailsPage(
+                  post: posts[index],
+                ),
+              ),
+            );
+          },
           title: Text(posts[index].title,
               style:
                   const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(posts[index].id.toString(),),
+            child: Text(
+              posts[index].id.toString(),
+            ),
           ),
           subtitle: Text(posts[index].body,
               maxLines: 4,

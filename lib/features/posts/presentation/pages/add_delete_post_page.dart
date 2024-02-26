@@ -48,7 +48,7 @@ class AddDeletePostPage extends StatelessWidget {
                 return const LoadingWidget();
               }
               return FormWidget(
-                  isUpdate: isUpdatePost, post: isUpdatePost ? null : post);
+                  isUpdate: isUpdatePost, post: isUpdatePost ? post : null);
             },
           ),
         ),

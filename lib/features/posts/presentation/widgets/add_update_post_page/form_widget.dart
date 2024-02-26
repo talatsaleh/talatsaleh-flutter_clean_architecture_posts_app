@@ -25,6 +25,7 @@ class _FormWidgetState extends State<FormWidget> {
   @override
   void initState() {
     if (widget.isUpdate && widget.post != null) {
+      print('true');
       _title.text = widget.post!.title;
       _body.text = widget.post!.body;
     }
